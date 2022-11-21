@@ -14,11 +14,11 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         iconTheme: const IconThemeData(
-          color: Colors.red,
+          color: Colors.black,
         ),
         elevation: 0,
         backgroundColor: Colors.transparent,
-        title: const Text('Cars', style: TextStyle(color: Colors.red, fontSize: 25),),
+        title: const Text('Cars', style: TextStyle(color: Colors.black, fontSize: 25),),
         brightness: Brightness.light,
         actions: [
           IconButton(onPressed: (){}, icon: const Icon(Icons.notifications_none),),
@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              Container(
+              SizedBox(
                 height: 40,
                 child: ListView(
                   scrollDirection: Axis.horizontal,
@@ -64,11 +64,11 @@ class _HomePageState extends State<HomePage> {
       child: Container(
         margin: const EdgeInsets.only(right: 10),
         decoration: BoxDecoration(
-            color: type ? Colors.red:Colors.white,
-            borderRadius: BorderRadius.circular(20)
+          color: type ? Colors.grey:Colors.white,
+          borderRadius: BorderRadius.circular(20),
         ),
         child: Center(
-          child: Text(text, style: TextStyle(fontSize: type? 20: 17, color: type?Colors.white:Colors.black),),
+          child: Text(text, style: TextStyle(fontSize: type? 20: 17, color: type?Colors.white:Colors.grey),),
         ),
       ),
     );
@@ -109,35 +109,34 @@ class _HomePageState extends State<HomePage> {
         ),
 
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text('Sport Car', style: TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),),
-                    SizedBox(width: 10,),
-                    Text('Electric', style: TextStyle(color: Colors.red, fontSize: 20, fontWeight: FontWeight.bold),),
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text('Sport Car', style: TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),),
+                    Container(
+                      width: 35,
+                      height: 35,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                      ),
+                      child: const Center(
+                        child: Icon(Icons.favorite_border, size: 20, color: Colors.grey,),
+                      ),
+                    ),
                   ],
                 ),
                 const SizedBox(height: 10,),
-                const Text('100\$', style: TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold))
+                const Text("Electric", style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold,),),
               ],
             ),
-            Container(
-              width: 35,
-              height: 35,
-              decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.red[400]
-              ),
-              child: const Center(
-                child: Icon(Icons.favorite_border, size: 20, color: Colors.white,),
-              ),
-            )
+            const Text('100\$', style: TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold))
           ],
         ),
       ),
