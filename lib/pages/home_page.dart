@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -19,11 +20,10 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         title: const Text('Cars', style: TextStyle(color: Colors.black, fontSize: 25),),
-        brightness: Brightness.light,
         actions: [
           IconButton(onPressed: (){}, icon: const Icon(Icons.notifications_none),),
           IconButton(onPressed: (){}, icon: const Icon(Icons.shopping_cart),)
-        ],
+        ], systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
 
       body: SingleChildScrollView(
